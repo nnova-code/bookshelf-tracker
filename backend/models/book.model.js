@@ -7,8 +7,7 @@ const bookSchema = new Schema({
     format: {type: String, required: true},
     author: { type: String, required: true },
     title: { type: String, required: true },
-    enteredBy: {
-        type: mongoose.Schema.Types.ObjectId,
+    enteredBy: {type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true,
       },
