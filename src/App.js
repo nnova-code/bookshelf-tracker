@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Container from '@material-ui/core/Container';
 import Header from './components/Header.jsx';
@@ -10,6 +10,14 @@ import Footer from './components/Footer.jsx';
 
 
 function App() {
+  // eslint-disable-next-line no-unused-vars
+  const [books, setBooks] = useState([]);
+
+  function addBook (newBook) {
+    setBooks(prevBooks => {
+      return [...prevBooks, newBook];
+    });
+  }
   return (
     <Router>
     <Container>
@@ -17,7 +25,7 @@ function App() {
     <br />
       <BookList />
       <EditBook />
-      <CreateBook />
+      <CreateBook onAdd={addBook} />
       <CreateUser />
       <Footer />
     </Container>
